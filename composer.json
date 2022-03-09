@@ -1,0 +1,6 @@
+{
+  "require": {
+     "pagseguro/pagseguro-php-sdk" : "^6.0",
+     "vlucas/phpdotenv": "^5.0"
+  }
+}
