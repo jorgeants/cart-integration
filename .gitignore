@@ -2,3 +2,5 @@
 vendor
 vendor/
 vendor/**/*
+
+composer.phar
