@@ -27,6 +27,8 @@ RUN apt-get install --yes \
  zip
 
 COPY --from=composer:2.2.7 /usr/bin/composer /usr/bin/composer
+
 COPY composer.json composer.json
-# COPY composer.lock composer.lock
 RUN composer install
+
+COPY .env .env
