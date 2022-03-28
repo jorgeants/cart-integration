@@ -30,12 +30,12 @@
   $preApproval->setSender()->setAddress()->withParameters(
     $buyerAddressStreet,
     $buyerAddressNumber,
-    $buyerAddressComplement,
     $buyerAddressDistrict,
+    $buyerAddressPostalCode,
     $buyerAddressCity,
     $buyerAddressState,
     'BRA',
-    $buyerAddressPostalCode
+    $buyerAddressComplement,
   );
   $document = new \PagSeguro\Domains\DirectPreApproval\Document();
   $document->withParameters('CPF', $_POST['cpf']);
@@ -59,12 +59,12 @@
     ->withParameters(
       $buyerAddressStreet,
       $buyerAddressNumber,
-      $buyerAddressComplement,
       $buyerAddressDistrict,
+      $buyerAddressPostalCode,
       $buyerAddressCity,
       $buyerAddressState,
       'BRA',
-      $buyerAddressPostalCode
+      $buyerAddressComplement,
     );
   
   try {
@@ -74,9 +74,6 @@
         $_ENV['PAGSEGURO_TOKEN_SANDBOX']
       )
     );
-
-    echo '<pre>';
-    print_r($response);
   } catch (Exception $e) {
     die($e->getMessage());
   }

@@ -12,6 +12,7 @@
   $plan->setPreApproval()->setCharge('AUTO');
   $plan->setPreApproval()->setPeriod('MONTHLY');
   $plan->setPreApproval()->setAmountPerPayment('100.00');
+  $plan->setPreApproval()->setTrialPeriodDuration(7);
   $plan->setPreApproval()->setExpiration()->withParameters(
     1,
     'YEARS'
@@ -20,15 +21,12 @@
   $plan->setReviewURL('http://google.com.br');
 
   try {
-      $response = $plan->register(
-          new \PagSeguro\Domains\AccountCredentials(
-            $_ENV['PAGSEGURO_EMAIL'],
-            $_ENV['PAGSEGURO_TOKEN_SANDBOX']
-          )
-      );
-
-      echo '<pre>';
-      print_r($response);
+    $response = $plan->register(
+      new \PagSeguro\Domains\AccountCredentials(
+        $_ENV['PAGSEGURO_EMAIL'],
+        $_ENV['PAGSEGURO_TOKEN_SANDBOX']
+      )
+    );
   } catch (Exception $e) {
       die($e->getMessage());
   }
