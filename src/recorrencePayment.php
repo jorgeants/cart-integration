@@ -74,6 +74,9 @@
         $_ENV['PAGSEGURO_TOKEN_SANDBOX']
       )
     );
+
+    echo "<h2>Assinatura efetuada com sucesso!</h2>";
+    print_r($response);
   } catch (Exception $e) {
     die($e->getMessage());
   }
