@@ -9,11 +9,11 @@
       file_put_contents('php://stderr', print_r($_POST, TRUE));
 
       if (\PagSeguro\Helpers\Xhr::hasPost()) {
-          if ($_POST["type"] === "preApproval") {
+          if ($_POST["notificationType"] === "preApproval") {
             $response = \PagSeguro\Services\PreApproval\Notification::check(
                 \PagSeguro\Configuration\Configure::getAccountCredentials()
             );
-          } elseif ($_POST["type"] === "transaction") {
+          } elseif ($_POST["notificationType"] === "transaction") {
             $response = \PagSeguro\Services\Transactions\Notification::check(
                 \PagSeguro\Configuration\Configure::getAccountCredentials()
             );
